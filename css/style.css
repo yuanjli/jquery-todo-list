@@ -1,0 +1,26 @@
+body {
+	text-align: center;
+}
+
+h1{
+	background-color: lightblue;
+	width: 50%;
+	margin: auto;
+}
+#newForm{
+	margin: auto;
+	padding: 8px;
+}
+
+#input {
+	font-size: 25px;
+	width: 35%;
+}
+#submit {
+	font-size: 30px;
+}
+
+ul {
+	width: 50%;
+	margin: auto;
+}
