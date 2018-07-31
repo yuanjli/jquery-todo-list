@@ -10,18 +10,37 @@ var myList = [];
 
 //select submit, when the user click on the submit, the item gets added to the to do list.
 // the input box clears. 
-	$(document).ready(function(){
+$(document).ready(function(){
 	//$('#input').html()
 	document.getElementById('submit').addEventListener('click', addToList);
 	
 })
 
+// Create a "close" button and append it to each list item
+var myNodelist = document.getElementsByTagName("LI");
+var i;
+for (i = 0; i < myNodelist.length; i++) {
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  myNodelist[i].appendChild(span);
+}
+
+// Click on a close button to hide the current list item
+var close = document.getElementsByClassName("close");
+var i;
+for (i = 0; i < close.length; i++) {
+  close[i].onclick = function() {
+    var div = this.parentElement;
+    div.style.display = "none";
+  }
+}
+
 
 function addToList() {
 	console.log("add to list is Called");
 	var userInput = document.getElementById('input').value;
-	console.log('it is ==============')
-	//uInput = userInput[0];
 	console.log(typeof(userInput), userInput);
 	myList.push(userInput);
 	var li = document.createElement("li");
@@ -31,6 +50,19 @@ function addToList() {
 	document.getElementById('input').value = '';
 	console.log(myList);
 }
-//make a check box for each to do list item.
 
-//
+//make a check box for each to do list item.
+function addCheckBox() {
+	var li = document.createElement('li');
+
+    var checkbox = document.createElement('input');
+        checkbox.type = "checkbox";
+        checkbox.value = 1;
+        checkbox.name = "todo[]";
+
+    li.appendChild(checkbox);
+}
+
+
+
+// Cross the line of the todo list.
